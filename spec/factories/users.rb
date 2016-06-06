@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    factory :doug do
-      username "doug"
+    factory :dougdo do
+      username "dougdo"
       password_digest BCrypt::Password.create('abcdef')
     end
   end

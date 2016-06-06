@@ -106,3 +106,10 @@ end
 def user_log_out
   click_button 'Log Out'
 end
+
+def make_goal(name)
+  visit "/goals/new"
+  fill_in "Name", with: name
+  check "Public"
+  click_button "Create Goal"
+end

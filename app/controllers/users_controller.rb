@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    p User.all
+p user_params
     if @user.save
       login_user!(@user)
       redirect_to goals_url

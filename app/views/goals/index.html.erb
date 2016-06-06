@@ -1,7 +1,12 @@
 
+<ul>
 
 <% @goals.each do |goal| %>
-<% if goal.public %>
-<%= goal.name %>
+<% if goal.user_id == current_user.id %>
+<li>
+<%= goal.name %>  -  <%= "Public" if goal.public %>  -
+<%= goal.completed ? "Complete!" : "In Progress" %>
+</li>
 <% end %>
 <% end %>
+</ul>

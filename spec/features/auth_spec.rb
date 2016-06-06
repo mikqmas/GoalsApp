@@ -26,12 +26,12 @@ end
 feature "logging out" do
   before :each do
     visit '/users/new'
-    user_sign_up('doug')
+    user_sign_up('dougdo')
     user_log_out
   end
 
   it "doesn't show username on the homepage after logout" do
-    expect(page).to_not have_content("doug")
+    expect(page).to_not have_content("dougdo")
   end
 
 end
@@ -39,13 +39,16 @@ end
 feature "logging in" do
 
 before :each do
-  FactoryGirl.create(:doug)
+  FactoryGirl.create(:dougdo)
+  # visit '/users/new'
+  # user_sign_up('dougdo')
+  # user_log_out
   visit "/session/new"
-  user_sign_in('doug', 'abcdef')
+  user_sign_in('dougdo', 'abcdef')
 end
 
   it "shows username on the homepage after login" do
-    expect(page).to have_content('doug')
+    expect(page).to have_content('dougdo')
   end
 
 

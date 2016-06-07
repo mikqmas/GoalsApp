@@ -9,6 +9,10 @@ class GoalsController < ApplicationController
     render :new
   end
 
+  def show
+    @goal = Goal.find(params[:id])
+  end
+
   def create
     @goal = Goal.new(goal_params)
     @goal.completed = false

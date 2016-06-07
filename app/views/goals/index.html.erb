@@ -4,8 +4,11 @@
 <% @goals.each do |goal| %>
 <% if goal.user_id == current_user.id %>
 <li>
-<%= goal.name %>  -  <%= "Public" if goal.public %>  -
+<%= link_to goal.name, goal_url(goal) %>  -  <%= "Public" if goal.public %>  -
 <%= goal.completed ? "Complete!" : "In Progress" %>
+
+</form>
+
 </li>
 <% end %>
 <% end %>

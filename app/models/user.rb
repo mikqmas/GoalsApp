@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :goals
+  has_many :comments, as: :commentable
 
   def self.find_by_credentials(parameters)
     username = parameters[:username]

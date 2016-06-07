@@ -1,0 +1,31 @@
+<%= @user.username %>
+
+
+<h4>Comments</h4>
+<table>
+
+  <% @user.comments.each do |comment| %>
+  <tr>
+  <td>
+    <%= comment.body %>
+  </td>
+  <td>
+    <%= User.find(comment.author_id).username %>
+  </td>
+  </tr>
+  <br>
+  <% end %>
+</table>
+
+<h5>Add Comment</h5>
+<form class="" action="/comments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="comment[id]" value="<%= @user.id %>">
+  <input type="hidden" name="comment[author_id]" value="<%= current_user.id %>">
+  <input type="hidden" name="comment[commentable_type]" value="User">
+
+  <label for="comment_body"></label>
+  <input type="text" name="comment[body]" id="comment_body"> <br>
+
+  <input type="submit" name="name" value="Comment">
+</form>
